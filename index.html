@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive profiles and supplementary materials for the REPVIS2 replication-study corpus.">
+  <title>REPVIS2 replication profiles</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">REPVIS2</div>
+    <nav class="tabs" aria-label="Supplementary material">
+      <button type="button" class="tab is-active" data-tab="profiles" aria-selected="true">Interactive profiles</button>
+      <button type="button" class="tab" data-tab="s1" aria-selected="false">S1 · Codebooks</button>
+      <button type="button" class="tab" data-tab="s2" aria-selected="false">S2 · Corpus and coding</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="profiles" class="panel is-active" aria-labelledby="profiles-heading">
+      <div class="figure-heading">
+        <div>
+          <h1 id="profiles-heading">Replication-study profiles</h1>
+          <p>Hover over a paper to trace all of its studies, or over a line to inspect one study.</p>
+        </div>
+        <div class="legend" aria-label="Reported result">
+          <span class="legend-title">Reported result</span>
+          <span><i class="swatch consistent"></i>Consistent</span>
+          <span><i class="swatch partial"></i>Partly consistent</span>
+          <span><i class="swatch not-consistent"></i>Not consistent</span>
+        </div>
+      </div>
+      <div id="chart-scroll" class="chart-scroll">
+        <svg id="profile-chart" role="img" aria-labelledby="chart-title chart-desc"></svg>
+      </div>
+      <div id="study-detail" class="study-detail" aria-live="polite">
+        <span class="detail-primary">51 papers · 86 replication studies</span>
+        <span class="detail-secondary">Point to a paper or line for details.</span>
+      </div>
+      <div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+    </section>
+
+    <section id="s1" class="panel document-panel" aria-label="S1: Coding guide and codebooks">
+      <iframe title="S1: Coding guide and codebooks" src="assets/S1.pdf#view=FitH"></iframe>
+    </section>
+
+    <section id="s2" class="panel document-panel" aria-label="S2: Search, registry and coding results">
+      <iframe title="S2: Search, registry and coding results" src="assets/S2.pdf#view=FitH"></iframe>
+    </section>
+  </main>
+
+  <script src="data/studies.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
