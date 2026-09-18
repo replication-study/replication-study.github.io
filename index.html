@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Explore the designs of 86 replication studies in visualisation with REPVIS2.">
-  <title>REPVIS2 · Replication studies</title><link rel="stylesheet" href="styles.css?v=20260917-2">
+  <title>REPVIS2 · Replication studies</title><link rel="stylesheet" href="styles.css?v=20260918-4">
 </head>
 <body>
   <header class="site-header">
@@ -21,21 +21,22 @@
         <label><span>Motivation</span><select id="motivation"><option value="">All motivations</option></select></label>
         <label><span>Replication result</span><select id="result"><option value="">All results</option><option value="Consistent">Consistent</option><option value="Partly consistent">Partly consistent</option><option value="Not consistent">Not consistent</option></select></label>
         <label><span>Research team</span><select id="team"><option value="">Either</option><option value="overlap">Overlap</option><option value="independent">Independent</option></select></label>
+        <input id="dimension" type="hidden" value=""><input id="level" type="hidden" value="">
         <button id="reset" class="quiet-button" type="button">Reset</button>
       </div>
       <div class="explorer">
         <section class="chart-card" aria-label="Corpus profiles">
-          <div class="chart-toolbar"><span id="match-count" role="status">86 studies · 51 papers</span><div class="legend" aria-label="Filter by reported result"><span class="legend-title">Reported result</span><button type="button" data-result="Consistent" aria-pressed="false"><i style="--swatch:#4477aa"></i>Consistent</button><button type="button" data-result="Partly consistent" aria-pressed="false"><i style="--swatch:#aa8833"></i>Partly consistent</button><button type="button" data-result="Not consistent" aria-pressed="false"><i style="--swatch:#aa4455"></i>Not consistent</button></div></div>
-          <div class="dimension-filter"><label for="dimension">Dimension</label><select id="dimension"><option value="">Any dimension</option></select><label class="sr-only" for="level">Comparison level</label><select id="level" disabled><option value="">Any level</option><option value="identical">Identical</option><option value="similar">Similar</option><option value="different">Different</option><option value="N/A">N/A</option></select><button id="expand-chart" type="button" class="quiet-button">Expand chart</button></div>
+          <div class="chart-toolbar"><span id="match-count" role="status">86 / 86 studies · 51 papers</span><div class="legend" aria-label="Reported result colours"><span class="legend-item"><i style="--swatch:#4477aa"></i>Consistent</span><span class="legend-item"><i style="--swatch:#aa8833"></i>Partly consistent</span><span class="legend-item"><i style="--swatch:#aa4455"></i>Not consistent</span></div><button id="expand-chart" type="button" class="text-button">Expand chart</button></div>
+          <div id="active-filters" class="active-filters" aria-label="Active filters" hidden></div>
           <div id="chart-scroll" class="chart-scroll"><svg id="profile-chart" role="group" aria-label="Parallel coordinates of replication designs"></svg><p id="no-matches" hidden>No studies match these filters. Remove a filter or select Reset.</p></div>
           <div class="chart-footer"><span id="selection-caption">Hover to preview · Click to keep a selection</span><button id="clear-selection" type="button" class="text-button" disabled>Clear selection</button></div>
         </section>
         <aside class="inspector" aria-label="Study details and REPVIS2 design space">
-          <div class="inspector-heading"><h2>Study &amp; design space</h2><span id="selection-mode">Overview</span></div>
+          <div class="inspector-heading"><h2>Study details</h2><span id="selection-mode">Overview</span></div>
           <div class="inspector-scroll">
             <div id="study-overview"></div>
             <section class="map-section" aria-label="REPVIS2 map">
-              <div class="section-heading"><h3>Where this fits in REPVIS2</h3><div class="map-actions"><button id="enlarge-map" type="button" class="text-button">Enlarge</button><a id="download-map" class="text-button" href="assets/REPVIS2-design-space.pdf" download="REPVIS2-design-space.pdf">Download</a></div></div>
+              <div class="section-heading"><h3>REPVIS2</h3><div class="map-actions"><button id="enlarge-map" type="button" class="text-button">Enlarge</button><a id="download-map" class="text-button" href="assets/REPVIS2-design-space.pdf" download="REPVIS2-design-space.pdf">Download</a></div></div>
               <div class="design-map"><img src="assets/design-space.png" alt="REPVIS2: research team; eight dimensions with identical, similar and different levels and design changes; an additional-question layer for design additions."><button type="button" class="map-region region-team" data-block="team" aria-label="Research team" title="Research team"></button><button type="button" class="map-region region-levels" data-block="levels" aria-label="Comparison dimensions and levels" title="Comparison dimensions and levels"></button><button type="button" class="map-region region-changes" data-block="changes" aria-label="Design changes" title="Design changes"></button><button type="button" class="map-region region-additions" data-block="additions" aria-label="Design additions" title="Design additions"></button></div>
               <p class="map-hint">Choose a broad region to read its details.</p>
             </section>
@@ -45,11 +46,11 @@
         </aside>
       </div>
     </section>
-    <section id="s1" class="panel document-panel" aria-label="Supplementary Material 1"><iframe title="Supplementary Material 1: Coding guide and codebooks" src="assets/S1.pdf#view=FitH"></iframe></section>
-    <section id="s2" class="panel document-panel" aria-label="Supplementary Material 2"><iframe title="Supplementary Material 2: Search, corpus registry and coding results" src="assets/S2.pdf#view=FitH"></iframe></section>
+    <section id="s1" class="panel document-panel" aria-label="Supplementary Material 1"><iframe title="Supplementary Material 1: Coding guide and codebooks" src="assets/S1.pdf?v=2e89d278#view=FitH"></iframe></section>
+    <section id="s2" class="panel document-panel" aria-label="Supplementary Material 2"><iframe title="Supplementary Material 2: Search, corpus registry and coding results" src="assets/S2.pdf?v=897021cc#view=FitH"></iframe></section>
   </main>
   <div id="tooltip" class="tooltip" hidden></div>
   <dialog id="map-dialog"><div class="section-heading"><h2>The REPVIS2 design space</h2><button id="close-map" type="button" class="quiet-button">Close</button></div><img src="assets/design-space.png" alt="Full REPVIS2 design space diagram"></dialog>
-  <script src="data/studies.js"></script><script src="data/details.js"></script><script src="app.js?v=20260917-2"></script>
+  <script src="data/studies.js"></script><script src="data/details.js"></script><script src="app.js?v=20260918-4"></script>
 </body>
 </html>
