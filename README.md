@@ -1,3 +1,3 @@
 # REPVIS2 interactive supplementary site
 
-## Publish with the GitHub website
+## Please refer to published page for detailed information
